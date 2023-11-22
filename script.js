@@ -38,3 +38,45 @@ function shuffleDeck() {
         deck[j] = temp;
     }
 }
+
+function startGame() {
+    hidden = deck.pop();
+    dealerScore += getValue(hidden);
+    dealerAceCount += checkAce(hidden);
+    while (dealerScore < 17) {
+        let cardImg = document.createElement("img");
+        let card = deck.pop();
+        cardImg.src = "./cards/" + card + ".png";
+        dealerScore += getValue(card);
+        dealerAceCount += checkAce(card);
+        document.getElementById("dealer-cards").append(cardImg);
+    }
+    
+    for (let i = 0; i < 2; i++) {
+        let cardImg = document.createElement("img");
+        let card = deck.pop();
+        cardImg.src = "./cards/" + card + ".png";
+        yourScore += getValue(card);
+        yourAceCount += checkAce(card);
+        document.getElementById("your-cards").append(cardImg);
+    }
+
+}
+
+function hit() {
+    if (!canHit) {
+        return;
+    }
+
+    let cardImg = document.createElement("img");
+    let card = deck.pop();
+    cardImg.src = "./cards/" + card + ".png";
+    yourScore += getValue(card);
+    yourAceCount += checkAce(card);
+    document.getElementById("your-cards").append(cardImg);
+
+    if (reduceAce(yourScore, yourAceCount) > 21) {
+        canHit = false;
+    }
+
+}
