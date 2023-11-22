@@ -80,3 +80,32 @@ function hit() {
     }
 
 }
+
+function stay() {
+    dealerScore = reduceAce(dealerScore, dealerAceCount);
+    yourScore = reduceAce(yourScore, yourAceCount);
+
+    canHit = false;
+    document.getElementById("hidden").src = "./cards/" + hidden + ".png";
+
+    let message = "";
+    if (yourScore > 21) {
+        message = "You Lose!";
+    }
+    else if (dealerScore > 21) {
+        message = "You win!";
+    }
+    else if (yourScore == dealerScore) {
+        message = "Draw!";
+    }
+    else if (yourScore > dealerScore) {
+        message = "You Win!";
+    }
+    else if (yourScore < dealerScore) {
+        message = "You Lose!";
+    }
+
+    document.getElementById("dealer-score").innerText = dealerScore;
+    document.getElementById("your-score").innerText = yourScore;
+    document.getElementById("results").innerText = message;
+}
