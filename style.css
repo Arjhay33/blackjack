@@ -1,0 +1,38 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+    background-image: url('https://img.freepik.com/premium-vector/tropical-leaf-seamless-pattern-line-art-style-with-green-background_427410-480.jpg?w=1480');
+    color: white;
+}
+
+#dealer-cards img {
+    height: 19vmin;
+    width: 13vmin;
+    margin: 1px;
+}
+
+#your-cards img {
+    height: 19vmin;
+    width: 13vmin;
+    margin: 1px;
+}
+
+#hit {
+    width: 5vmin;
+    height: 5vmin;
+    margin: 10px;
+}
+
+#stay {
+    width: 5vmin;
+    height: 5vmin;
+    margin: 10px;
+
+}
+
+#play-again {
+    width: 5vmin;
+    height: 5vmin;
+    margin: 10px;
+
+}
