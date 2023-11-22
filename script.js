@@ -18,6 +18,7 @@ function init() {
     buildDeck();
     shuffleDeck();
     startGame();
+    render();
 }
 
 function buildDeck() {
@@ -108,4 +109,32 @@ function stay() {
     document.getElementById("dealer-score").innerText = dealerScore;
     document.getElementById("your-score").innerText = yourScore;
     document.getElementById("results").innerText = message;
+}
+
+function getValue(card) {
+    let data = card.split("-");
+    let value = data[0];
+
+    if (isNaN(value)) {
+        if (value == "A") {
+            return 11;
+        }
+        return 10;
+    }
+    return parseInt(value);
+}
+
+function checkAce(card) {
+    if (card[0] == "A") {
+        return 1;
+    }
+    return 0;
+}
+
+function reduceAce(playerScore, playerAceCount) {
+    while (playerScore > 21 && playerAceCount > 0) {
+        playerScore -= 10;
+        playerAceCount -= 1;
+    }
+    return playerScore;
 }
